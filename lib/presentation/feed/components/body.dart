@@ -135,7 +135,7 @@ class _BodyState extends State<Body> {
                     BlocBuilder<FeedBloc, FeedState>(builder: (context, state) {
               Widget? child;
               if (state.loading! && items.isEmpty) {
-                child = const LoadingWidget();
+                child = const Center(child: LoadingWidget());
               }
               if (state.loading! && items.isNotEmpty) {
                 child = list();
