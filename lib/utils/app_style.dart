@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:spotlas_test/utils/app_colors.dart';
 
 class TextStyles {
   static const semiBold = TextStyle(
@@ -16,5 +17,11 @@ class TextStyles {
     fontFamily: "SF PRO DISPLAY",
     fontWeight: FontWeight.w400,
     color: Colors.black,
+  );
+
+  static const medium = TextStyle(
+    fontFamily: "SF PRO DISPLAY",
+    fontWeight: FontWeight.w500,
+    color: AppColors.lightGrey,
   );
 }
