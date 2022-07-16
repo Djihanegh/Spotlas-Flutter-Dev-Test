@@ -52,6 +52,9 @@ dependencies:
   intl: ^0.17.0
   fluttertoast: ^8.0.9
   cached_network_image: ^3.2.1
+  carousel_slider: ^4.1.1
+  infinite_scroll_pagination: ^3.2.0
+  uuid: ^3.0.6
 
 dev_dependencies:
   flutter_test:
@@ -93,23 +96,23 @@ flutter:
   fonts:
     - family: SF PRO DISPLAY
       fonts:
-        - asset: assets/fonts/Sf-pro-display/SFPRODISPLAYBLACKITALIC.ttf
+        - asset: assets/fonts/Sf-pro-display/SFPRODISPLAYBLACKITALIC.otf
           weight: 400
-        - asset: assets/fonts/Sf-pro-display/SFPRODISPLAYHEAVYITALIC.ttf
+        - asset: assets/fonts/Sf-pro-display/SFPRODISPLAYHEAVYITALIC.otf
           weight: 700
-        - asset: assets/fonts/Sf-pro-display/SFPRODISPLAYLIGHTITALIC.ttf
+        - asset: assets/fonts/Sf-pro-display/SFPRODISPLAYLIGHTITALIC.otf
           weight: 200
-        - asset: assets/fonts/Sf-pro-display/SFPRODISPLAYMEDIUM.ttf
+        - asset: assets/fonts/Sf-pro-display/SFPRODISPLAYMEDIUM.otf
           weight: 500
-        - asset: assets/fonts/Sf-pro-display/SFPRODISPLAYSEMIBOLDITALIC.ttf
+        - asset: assets/fonts/Sf-pro-display/SFPRODISPLAYSEMIBOLDITALIC.otf
           weight: 700
-        - asset: assets/fonts/Sf-pro-display/SFPRODISPLAYBOLD.ttf
+        - asset: assets/fonts/Sf-pro-display/SFPRODISPLAYBOLD.otf
           weight: 700
-        - asset: assets/fonts/Sf-pro-display/SFPRODISPLAYREGULAR.ttf
+        - asset: assets/fonts/Sf-pro-display/SFPRODISPLAYREGULAR.otf
           weight: 400
-        - asset: assets/fonts/Sf-pro-display/SFPRODISPLAYTHINITALIC.ttf
+        - asset: assets/fonts/Sf-pro-display/SFPRODISPLAYTHINITALIC.otf
           weight: 300
-        - asset: assets/fonts/Sf-pro-display/SFPRODISPLAYULTRALIGHTITALIC.ttf
+        - asset: assets/fonts/Sf-pro-display/SFPRODISPLAYULTRALIGHTITALIC.otf
           weight: 100
         - asset: assets/fonts/Sf-pro-display/SFPRODISPLAYSEMIBOLD.ttf
           weight: 600

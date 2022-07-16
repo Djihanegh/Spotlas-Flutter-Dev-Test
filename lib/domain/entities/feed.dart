@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:spotlas_test/domain/entities/author.dart';
+import 'package:spotlas_test/domain/entities/spot.dart';
 import 'package:spotlas_test/domain/entities/tags.dart';
 
 part 'feed.freezed.dart';
@@ -20,6 +21,7 @@ class Feed with _$Feed {
       @JsonValue("number_of_comments") int? numberOfComments,
       @JsonValue("number_of_likes") int? numberOfLikes,
       String? url,
+      Spot? spot,
       List<Tags>? tags,
       String? updatedAt}) = _Feed;
 

@@ -24,6 +24,9 @@ _$_Feed _$$_FeedFromJson(Map<String, dynamic> json) => _$_Feed(
       numberOfComments: json['numberOfComments'] as int?,
       numberOfLikes: json['numberOfLikes'] as int?,
       url: json['url'] as String?,
+      spot: json['spot'] == null
+          ? null
+          : Spot.fromJson(json['spot'] as Map<String, dynamic>),
       tags: (json['tags'] as List<dynamic>?)
           ?.map((e) => Tags.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -42,6 +45,7 @@ Map<String, dynamic> _$$_FeedToJson(_$_Feed instance) => <String, dynamic>{
       'numberOfComments': instance.numberOfComments,
       'numberOfLikes': instance.numberOfLikes,
       'url': instance.url,
+      'spot': instance.spot,
       'tags': instance.tags,
       'updatedAt': instance.updatedAt,
     };

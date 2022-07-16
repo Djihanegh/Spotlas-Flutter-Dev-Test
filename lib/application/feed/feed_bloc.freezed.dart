@@ -350,11 +350,12 @@ abstract class IsFailure implements FeedEvent {
 
 /// @nodoc
 mixin _$FeedState {
-  Option<Either<ServerFailure, Map<String, dynamic>>>? get getFeed =>
+  Option<Either<ServerFailure, List<Feed>>>? get getFeed =>
       throw _privateConstructorUsedError;
   bool? get isFailure => throw _privateConstructorUsedError;
   bool? get loading => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
+  List<Feed>? get data => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $FeedStateCopyWith<FeedState> get copyWith =>
@@ -366,10 +367,11 @@ abstract class $FeedStateCopyWith<$Res> {
   factory $FeedStateCopyWith(FeedState value, $Res Function(FeedState) then) =
       _$FeedStateCopyWithImpl<$Res>;
   $Res call(
-      {Option<Either<ServerFailure, Map<String, dynamic>>>? getFeed,
+      {Option<Either<ServerFailure, List<Feed>>>? getFeed,
       bool? isFailure,
       bool? loading,
-      String? errorMessage});
+      String? errorMessage,
+      List<Feed>? data});
 }
 
 /// @nodoc
@@ -386,12 +388,13 @@ class _$FeedStateCopyWithImpl<$Res> implements $FeedStateCopyWith<$Res> {
     Object? isFailure = freezed,
     Object? loading = freezed,
     Object? errorMessage = freezed,
+    Object? data = freezed,
   }) {
     return _then(_value.copyWith(
       getFeed: getFeed == freezed
           ? _value.getFeed
           : getFeed // ignore: cast_nullable_to_non_nullable
-              as Option<Either<ServerFailure, Map<String, dynamic>>>?,
+              as Option<Either<ServerFailure, List<Feed>>>?,
       isFailure: isFailure == freezed
           ? _value.isFailure
           : isFailure // ignore: cast_nullable_to_non_nullable
@@ -404,6 +407,10 @@ class _$FeedStateCopyWithImpl<$Res> implements $FeedStateCopyWith<$Res> {
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String?,
+      data: data == freezed
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as List<Feed>?,
     ));
   }
 }
@@ -415,10 +422,11 @@ abstract class _$$_FeedStateCopyWith<$Res> implements $FeedStateCopyWith<$Res> {
       __$$_FeedStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {Option<Either<ServerFailure, Map<String, dynamic>>>? getFeed,
+      {Option<Either<ServerFailure, List<Feed>>>? getFeed,
       bool? isFailure,
       bool? loading,
-      String? errorMessage});
+      String? errorMessage,
+      List<Feed>? data});
 }
 
 /// @nodoc
@@ -437,12 +445,13 @@ class __$$_FeedStateCopyWithImpl<$Res> extends _$FeedStateCopyWithImpl<$Res>
     Object? isFailure = freezed,
     Object? loading = freezed,
     Object? errorMessage = freezed,
+    Object? data = freezed,
   }) {
     return _then(_$_FeedState(
       getFeed: getFeed == freezed
           ? _value.getFeed
           : getFeed // ignore: cast_nullable_to_non_nullable
-              as Option<Either<ServerFailure, Map<String, dynamic>>>?,
+              as Option<Either<ServerFailure, List<Feed>>>?,
       isFailure: isFailure == freezed
           ? _value.isFailure
           : isFailure // ignore: cast_nullable_to_non_nullable
@@ -455,6 +464,10 @@ class __$$_FeedStateCopyWithImpl<$Res> extends _$FeedStateCopyWithImpl<$Res>
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String?,
+      data: data == freezed
+          ? _value._data
+          : data // ignore: cast_nullable_to_non_nullable
+              as List<Feed>?,
     ));
   }
 }
@@ -463,20 +476,33 @@ class __$$_FeedStateCopyWithImpl<$Res> extends _$FeedStateCopyWithImpl<$Res>
 
 class _$_FeedState implements _FeedState {
   const _$_FeedState(
-      {this.getFeed, this.isFailure, this.loading, this.errorMessage});
+      {this.getFeed,
+      this.isFailure,
+      this.loading,
+      this.errorMessage,
+      final List<Feed>? data})
+      : _data = data;
 
   @override
-  final Option<Either<ServerFailure, Map<String, dynamic>>>? getFeed;
+  final Option<Either<ServerFailure, List<Feed>>>? getFeed;
   @override
   final bool? isFailure;
   @override
   final bool? loading;
   @override
   final String? errorMessage;
+  final List<Feed>? _data;
+  @override
+  List<Feed>? get data {
+    final value = _data;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
-    return 'FeedState(getFeed: $getFeed, isFailure: $isFailure, loading: $loading, errorMessage: $errorMessage)';
+    return 'FeedState(getFeed: $getFeed, isFailure: $isFailure, loading: $loading, errorMessage: $errorMessage, data: $data)';
   }
 
   @override
@@ -488,7 +514,8 @@ class _$_FeedState implements _FeedState {
             const DeepCollectionEquality().equals(other.isFailure, isFailure) &&
             const DeepCollectionEquality().equals(other.loading, loading) &&
             const DeepCollectionEquality()
-                .equals(other.errorMessage, errorMessage));
+                .equals(other.errorMessage, errorMessage) &&
+            const DeepCollectionEquality().equals(other._data, _data));
   }
 
   @override
@@ -497,7 +524,8 @@ class _$_FeedState implements _FeedState {
       const DeepCollectionEquality().hash(getFeed),
       const DeepCollectionEquality().hash(isFailure),
       const DeepCollectionEquality().hash(loading),
-      const DeepCollectionEquality().hash(errorMessage));
+      const DeepCollectionEquality().hash(errorMessage),
+      const DeepCollectionEquality().hash(_data));
 
   @JsonKey(ignore: true)
   @override
@@ -507,19 +535,22 @@ class _$_FeedState implements _FeedState {
 
 abstract class _FeedState implements FeedState {
   const factory _FeedState(
-      {final Option<Either<ServerFailure, Map<String, dynamic>>>? getFeed,
+      {final Option<Either<ServerFailure, List<Feed>>>? getFeed,
       final bool? isFailure,
       final bool? loading,
-      final String? errorMessage}) = _$_FeedState;
+      final String? errorMessage,
+      final List<Feed>? data}) = _$_FeedState;
 
   @override
-  Option<Either<ServerFailure, Map<String, dynamic>>>? get getFeed;
+  Option<Either<ServerFailure, List<Feed>>>? get getFeed;
   @override
   bool? get isFailure;
   @override
   bool? get loading;
   @override
   String? get errorMessage;
+  @override
+  List<Feed>? get data;
   @override
   @JsonKey(ignore: true)
   _$$_FeedStateCopyWith<_$_FeedState> get copyWith =>

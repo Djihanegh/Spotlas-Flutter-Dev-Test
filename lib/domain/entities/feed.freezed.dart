@@ -36,6 +36,7 @@ mixin _$Feed {
   @JsonValue("number_of_likes")
   int? get numberOfLikes => throw _privateConstructorUsedError;
   String? get url => throw _privateConstructorUsedError;
+  Spot? get spot => throw _privateConstructorUsedError;
   List<Tags>? get tags => throw _privateConstructorUsedError;
   String? get updatedAt => throw _privateConstructorUsedError;
 
@@ -60,10 +61,12 @@ abstract class $FeedCopyWith<$Res> {
       @JsonValue("number_of_comments") int? numberOfComments,
       @JsonValue("number_of_likes") int? numberOfLikes,
       String? url,
+      Spot? spot,
       List<Tags>? tags,
       String? updatedAt});
 
   $AuthorCopyWith<$Res>? get author;
+  $SpotCopyWith<$Res>? get spot;
 }
 
 /// @nodoc
@@ -87,6 +90,7 @@ class _$FeedCopyWithImpl<$Res> implements $FeedCopyWith<$Res> {
     Object? numberOfComments = freezed,
     Object? numberOfLikes = freezed,
     Object? url = freezed,
+    Object? spot = freezed,
     Object? tags = freezed,
     Object? updatedAt = freezed,
   }) {
@@ -135,6 +139,10 @@ class _$FeedCopyWithImpl<$Res> implements $FeedCopyWith<$Res> {
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String?,
+      spot: spot == freezed
+          ? _value.spot
+          : spot // ignore: cast_nullable_to_non_nullable
+              as Spot?,
       tags: tags == freezed
           ? _value.tags
           : tags // ignore: cast_nullable_to_non_nullable
@@ -156,6 +164,17 @@ class _$FeedCopyWithImpl<$Res> implements $FeedCopyWith<$Res> {
       return _then(_value.copyWith(author: value));
     });
   }
+
+  @override
+  $SpotCopyWith<$Res>? get spot {
+    if (_value.spot == null) {
+      return null;
+    }
+
+    return $SpotCopyWith<$Res>(_value.spot!, (value) {
+      return _then(_value.copyWith(spot: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -175,11 +194,14 @@ abstract class _$$_FeedCopyWith<$Res> implements $FeedCopyWith<$Res> {
       @JsonValue("number_of_comments") int? numberOfComments,
       @JsonValue("number_of_likes") int? numberOfLikes,
       String? url,
+      Spot? spot,
       List<Tags>? tags,
       String? updatedAt});
 
   @override
   $AuthorCopyWith<$Res>? get author;
+  @override
+  $SpotCopyWith<$Res>? get spot;
 }
 
 /// @nodoc
@@ -204,6 +226,7 @@ class __$$_FeedCopyWithImpl<$Res> extends _$FeedCopyWithImpl<$Res>
     Object? numberOfComments = freezed,
     Object? numberOfLikes = freezed,
     Object? url = freezed,
+    Object? spot = freezed,
     Object? tags = freezed,
     Object? updatedAt = freezed,
   }) {
@@ -252,6 +275,10 @@ class __$$_FeedCopyWithImpl<$Res> extends _$FeedCopyWithImpl<$Res>
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String?,
+      spot: spot == freezed
+          ? _value.spot
+          : spot // ignore: cast_nullable_to_non_nullable
+              as Spot?,
       tags: tags == freezed
           ? _value._tags
           : tags // ignore: cast_nullable_to_non_nullable
@@ -279,6 +306,7 @@ class _$_Feed implements _Feed {
       @JsonValue("number_of_comments") this.numberOfComments,
       @JsonValue("number_of_likes") this.numberOfLikes,
       this.url,
+      this.spot,
       final List<Tags>? tags,
       this.updatedAt})
       : _caption = caption,
@@ -336,6 +364,8 @@ class _$_Feed implements _Feed {
   final int? numberOfLikes;
   @override
   final String? url;
+  @override
+  final Spot? spot;
   final List<Tags>? _tags;
   @override
   List<Tags>? get tags {
@@ -350,7 +380,7 @@ class _$_Feed implements _Feed {
 
   @override
   String toString() {
-    return 'Feed(id: $id, caption: $caption, creator: $creator, author: $author, media: $media, likedBy: $likedBy, createdAt: $createdAt, releventComments: $releventComments, numberOfComments: $numberOfComments, numberOfLikes: $numberOfLikes, url: $url, tags: $tags, updatedAt: $updatedAt)';
+    return 'Feed(id: $id, caption: $caption, creator: $creator, author: $author, media: $media, likedBy: $likedBy, createdAt: $createdAt, releventComments: $releventComments, numberOfComments: $numberOfComments, numberOfLikes: $numberOfLikes, url: $url, spot: $spot, tags: $tags, updatedAt: $updatedAt)';
   }
 
   @override
@@ -372,6 +402,7 @@ class _$_Feed implements _Feed {
             const DeepCollectionEquality()
                 .equals(other.numberOfLikes, numberOfLikes) &&
             const DeepCollectionEquality().equals(other.url, url) &&
+            const DeepCollectionEquality().equals(other.spot, spot) &&
             const DeepCollectionEquality().equals(other._tags, _tags) &&
             const DeepCollectionEquality().equals(other.updatedAt, updatedAt));
   }
@@ -391,6 +422,7 @@ class _$_Feed implements _Feed {
       const DeepCollectionEquality().hash(numberOfComments),
       const DeepCollectionEquality().hash(numberOfLikes),
       const DeepCollectionEquality().hash(url),
+      const DeepCollectionEquality().hash(spot),
       const DeepCollectionEquality().hash(_tags),
       const DeepCollectionEquality().hash(updatedAt));
 
@@ -418,6 +450,7 @@ abstract class _Feed implements Feed {
       @JsonValue("number_of_comments") final int? numberOfComments,
       @JsonValue("number_of_likes") final int? numberOfLikes,
       final String? url,
+      final Spot? spot,
       final List<Tags>? tags,
       final String? updatedAt}) = _$_Feed;
 
@@ -450,6 +483,8 @@ abstract class _Feed implements Feed {
   int? get numberOfLikes;
   @override
   String? get url;
+  @override
+  Spot? get spot;
   @override
   List<Tags>? get tags;
   @override

@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:chopper/chopper.dart';
 import 'package:http/io_client.dart' as http;
+
 import 'package:spotlas_test/domain/entities/feed.dart';
 import 'package:spotlas_test/domain/entities/tags.dart';
 
@@ -18,7 +19,7 @@ part 'feed_api_service.chopper.dart';
 abstract class FeedApiService extends ChopperService {
   //************************************** GET REQUESTS *********************************************** */
   @Get(path: '/interview/feed')
-  Future<Response<Map<String, dynamic>>> getFeed(@Query('page') int page);
+  Future<Response<List<Feed>>> getFeed(@Query('page') int page);
 
   static FeedApiService create() {
     final client = ChopperClient(
@@ -34,6 +35,7 @@ abstract class FeedApiService extends ChopperService {
         Author: Author.fromJsonFactory,
         Spot: Spot.fromJsonFactory,
         Tags: Tags.fromJsonFactory,
+        ApiResponse: ApiResponse.fromJsonFactory,
       }),
       errorConverter: const JsonSerializableConverter({
         ApiResponse: ApiResponse.fromJsonFactory,

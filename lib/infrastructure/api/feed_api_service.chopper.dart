@@ -17,10 +17,10 @@ class _$FeedApiService extends FeedApiService {
   final definitionType = FeedApiService;
 
   @override
-  Future<Response<Map<String, dynamic>>> getFeed(int page) {
+  Future<Response<List<Feed>>> getFeed(int page) {
     final $url = 'https://dev.api.spotlas.com/interview/feed';
     final $params = <String, dynamic>{'page': page};
     final $request = Request('GET', $url, client.baseUrl, parameters: $params);
-    return client.send<Map<String, dynamic>, Map<String, dynamic>>($request);
+    return client.send<List<Feed>, Feed>($request);
   }
 }

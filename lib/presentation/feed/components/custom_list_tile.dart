@@ -1,7 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:spotlas_test/utils/app_colors.dart';
 import 'package:spotlas_test/utils/app_style.dart';
 
 class CustomListTile extends StatelessWidget {
@@ -10,10 +8,13 @@ class CustomListTile extends StatelessWidget {
       required this.borderColor,
       required this.image,
       required this.title,
-      required this.subtitle})
+      required this.subtitle,
+       this.color, this.gradient})
       : super(key: key);
 
   final Color borderColor;
+  final Color? color;
+  final Gradient? gradient;
   final String image;
   final String title;
   final String subtitle;
@@ -28,26 +29,22 @@ class CustomListTile extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30),
             color: borderColor,
-            gradient: const LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: <Color>[
-                AppColors.pink,
-                AppColors.red
-              ], // Gradient from https://learnui.design/tools/gradient-generator.html
-              tileMode: TileMode.mirror,
-            ),
+            gradient: gradient
           ),
           child: Container(
             margin: const EdgeInsets.all(5),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30),
-                color: Colors.white,
+                color: color,
                 image: DecorationImage(
                     fit: BoxFit.fill,
-                    image: AssetImage(
-                      image,
-                    ))),
+                    image: image != ""
+                        ? NetworkImage(
+                            image,
+                          )
+                        : const NetworkImage(
+                            // just did it as general empty image
+                            "https://d3qsefuprrv1m2.cloudfront.net/resize/687/user_avatar/1674eba3-76e6-4679-adcc-a26672e9a4c1.jpeg"))),
           )),
       title: AutoSizeText(
         title,

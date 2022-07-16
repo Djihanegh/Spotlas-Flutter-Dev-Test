@@ -1,7 +1,8 @@
 import 'package:dartz/dartz.dart';
 
 import '../core/failures.dart';
+import '../entities/feed.dart';
 
 abstract class IFeedFacade {
-  Future<Either<ServerFailure, Map<String, dynamic>>> getFeed(int page);
+  Future<Either<ServerFailure, List<Feed>>> getFeed(int page);
 }
