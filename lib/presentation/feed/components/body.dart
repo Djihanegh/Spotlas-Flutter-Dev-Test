@@ -116,7 +116,7 @@ class _BodyState extends State<Body> {
                         data.clear();
                         data = success;
 
-                        items.insertAll(items.length, data);
+                        items = [...items, ...data];
                       });
                     } else {
                       setState(() {
@@ -134,12 +134,17 @@ class _BodyState extends State<Body> {
             }, child:
                     BlocBuilder<FeedBloc, FeedState>(builder: (context, state) {
               Widget? child;
-              if (state.loading!) {
+              if (state.loading! && items.isEmpty) {
                 child = const LoadingWidget();
+              }
+              if (state.loading! && items.isNotEmpty) {
+                child = list();
               } else if (state.isFailure!) {
                 child = CustomErrorWidget(
                     refresh: () {}, errorMessage: state.errorMessage!);
-              } else if (items.isEmpty) {
+              } else if (items.isEmpty &&
+                  !state.isFailure! &&
+                  !state.loading!) {
                 child = const Center(
                   child: Text("Feed is empty !"),
                 );
@@ -175,7 +180,6 @@ class _BodyState extends State<Body> {
               ButtonBarWidget(
                 likedBy: items[index].likedBy ?? [],
                 userID: userID,
-                
               ),
               TitleWidget(
                   title: items[index].author?.username ?? "",
