@@ -31,6 +31,7 @@ class FeedImageWidget extends StatelessWidget {
             Positioned.fill(
                 child: CarouselSlider(
                     options: CarouselOptions(
+                      viewportFraction: 1,
                       height: SizeConfig.screenHeight! * 0.72,
                     ),
                     items: images
