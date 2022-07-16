@@ -4,6 +4,7 @@ import 'package:spotlas_test/utils/spotlas_icons_icons.dart';
 import '../../../utils/app_assets.dart';
 import '../../../utils/size_config.dart';
 import 'button_bar_widget.dart';
+import 'title_widget.dart';
 
 class Body extends StatefulWidget {
   const Body({Key? key}) : super(key: key);
@@ -76,6 +77,10 @@ class _BodyState extends State<Body> {
               ],
             )),
         const ButtonBarWidget(),
+        TitleWidget(
+            title: "nataliestevens",
+            text:
+                " The best peruvian food in London. You have to try to Peruvian burger and salmon tacos \nThe best peruvian food in London. You have to try to Peruvian burger and salmon tacos The best peruvian food in London.\n You have to try to Peruvian burger and salmon tacos"),
       ],
     )));
   }
